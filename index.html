@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -55,18 +55,18 @@
             var user = document.getElementById('user').value;
             var pass = document.getElementById('pass').value;
             var confirmpass = document.getElementById('conpass').value;
-            var mobileNumber = document.getElementById('mobileNumber').value;
+            var Age = document.getElementById('age').value;
             var emails = document.getElementById('emails').value;
 
             if (user == "") {
                 document.getElementById("username").innerHTML = "The Name field is required";
                 return false;
             }
-            if ((user.length <= 5) || (user.length >= 20)) {
+            else if ((user.length <= 5) || (user.length >= 20)) {
                 document.getElementById("username").innerHTML = "The length must between 5 to 20 ";
                 return false;
             }
-            if (!isNaN(user)) {
+            else if (!isNaN(user)) {
                 document.getElementById("username").innerHTML = "Only Charecters are allowed";
                 return false;
             }
@@ -78,36 +78,38 @@
                 document.getElementById("passwords").innerHTML = "The length must between 5 to 20 ";
                 return false;
             }
-            if (pass = confirm.pass) {
-                document.getElementById("confrmpass").innerHTML = "Passwords are not matching";
-                return false;
-            }
+
 
             if (confirmpass == "") {
                 document.getElementById("confrmpass").innerHTML = "The Confairmation field is required";
                 return false;
             }
-            if (mobileNumber == "") {
+            else if (isNaN(confirmpass) || pass != confirm.pass) {
+                document.getElementById("confrmpass").innerHTML = "Passwords are not matching";
+                return false;
+            }
+
+            if (Age == "") {
                 document.getElementById("age").innerHTML = "The Age field is required";
                 return false;
             }
-            if (isNaN(mobileNumber)) {
+            else if (isNaN(Age)) {
                 document.getElementById("age").innerHTML = "Please enter only digits";
                 return false;
             }
-            if (mobileNumber.value <= 18) {
+            else if (Age <= 18) {
                 document.getElementById("age").innerHTML = "Dear child your age should be more than 18";
                 return false;
             }
             if (emails == "") {
-                document.getElementById("emailids").innerHTML = "Please fill the user name field";
+                document.getElementById("emailids").innerHTML = "The Email field is required";
                 return false;
             }
-            if (emails.indexOf('@') <= 0) {
+            else if (emails.indexOf('@') <= 0) {
                 document.getElementById("emailids").innerHTML = "invalid Position"
                 return false;
             }
-            if ((emails.charAt(emails.length - 4) != '.') && (emails.charAt(emails.length - 3) != '.')) {
+            else if ((emails.charAt(emails.length - 4) != '.') && (emails.charAt(emails.length - 3) != '.')) {
                 document.getElementById("emailids").innerHTML = "**.Inavalid position";
                 return false;
             }
